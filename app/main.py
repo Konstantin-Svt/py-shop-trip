@@ -25,7 +25,7 @@ def shop_trip() -> None:
         for customer in config["customers"]
     ]
     for customer in list_of_customers:
-        money_str = f"{round(customer.money, 2)}".rstrip("0").rstrip(".")
+        money_str = str(round(customer.money, 2)).rstrip("0").rstrip(".")
         print(f"{customer.name} has {money_str} dollars")
         shop_price_dict = {}
         for shop in list_of_shops:
