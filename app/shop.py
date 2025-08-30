@@ -42,5 +42,9 @@ class Shop:
                 f"{float(round(product_spent, 2)):g} dollars"  # noqa: E231
             )
             total_product_spent += product_spent
-        print(f"Total cost is {total_product_spent} dollars\nSee you again!")
+            total_product_spent_str = f"{round(
+                total_product_spent, 2
+            )}".rstrip("0").rstrip(".")
+        print(f"Total cost is {total_product_spent_str} "
+              f"dollars\nSee you again!")
         print()

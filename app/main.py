@@ -25,12 +25,19 @@ def shop_trip() -> None:
         for customer in config["customers"]
     ]
     for customer in list_of_customers:
-        shop_price_dict = {
-            shop: customer.calculate_shop_trip(shop, fuel_price)
-            for shop in list_of_shops
-        }
+        money_str = f"{round(customer.money, 2)}".rstrip("0").rstrip(".")
+        print(f"{customer.name} has {money_str} dollars")
+        shop_price_dict = {}
+        for shop in list_of_shops:
+            try:
+                shop_price_dict[shop] = customer.calculate_shop_trip(
+                    shop, fuel_price
+                )
+            except KeyError:
+                print(f"{shop.name} does not have {customer.name}'s "
+                      f"required product. {shop.name} is "
+                      f"excluded from calculation.")
         cheapest_shop = min(shop_price_dict, key=shop_price_dict.get)
-        print(f"{customer.name} has {customer.money} dollars")
         for key, value in shop_price_dict.items():
             print(
                 f"{customer.name}'s trip to "

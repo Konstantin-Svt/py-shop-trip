@@ -30,7 +30,7 @@ class Customer:
             sum(
                 [
                     Decimal(self.product_cart[product])
-                    * Decimal(f"{shop.products.get(product, 0)}")
+                    * Decimal(f"{shop.products[product]}")
                     for product in self.product_cart
                 ]
             )
