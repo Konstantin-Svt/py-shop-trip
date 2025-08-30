@@ -30,7 +30,7 @@ class Customer:
             sum(
                 [
                     Decimal(self.product_cart[product])
-                    * Decimal(f"{shop.products[product]}")
+                    * Decimal(f"{shop.products.get(product, 0)}")
                     for product in self.product_cart
                 ]
             )
@@ -44,3 +44,7 @@ class Customer:
         shop.sell(self)
         self.location = home
         self.money = self.money - price
+        print(
+            f"{self.name} rides home\n{self.name} "
+            f"now has {round(self.money, 2)} dollars\n"
+        )

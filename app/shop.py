@@ -26,6 +26,7 @@ class Shop:
 
     def sell(self, customer: Customer) -> None:
         timestamp = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        print()
         print(
             f"Date: {timestamp}\nThanks, {customer.name}"
             f", for your purchase!\nYou have bought:"  # noqa: E231
@@ -38,7 +39,8 @@ class Shop:
             print(
                 f"{customer.product_cart[product]} "
                 f"{product}s for "
-                f"{float(product_spent):g} dollars"  # noqa: E231
+                f"{float(round(product_spent, 2)):g} dollars"  # noqa: E231
             )
             total_product_spent += product_spent
-        print(f"Total cost is {total_product_spent} dollars\nSee you again!\n")
+        print(f"Total cost is {total_product_spent} dollars\nSee you again!")
+        print()

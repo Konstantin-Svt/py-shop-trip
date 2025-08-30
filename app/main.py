@@ -42,9 +42,5 @@ def shop_trip() -> None:
                 f"money to make a purchase in any shop"
             )
             continue
-        print(f"{customer.name} rides to {cheapest_shop.name}\n")
+        print(f"{customer.name} rides to {cheapest_shop.name}")
         customer.ride(cheapest_shop, shop_price_dict[cheapest_shop])
-        print(
-            f"{customer.name} rides home\n{customer.name} "
-            f"now has {round(customer.money, 2)} dollars\n"
-        )
